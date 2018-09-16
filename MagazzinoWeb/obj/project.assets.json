@@ -11500,23 +11500,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Family\\.nuget\\packages\\": {},
+    "C:\\Users\\David\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Desktop\\ProyectoFinalPOO3\\MagazzinoWeb\\MagazzinoWeb.csproj",
+      "projectUniqueName": "C:\\Users\\David\\Source\\Repos\\ProyectoFinalPOO3\\MagazzinoWeb\\MagazzinoWeb.csproj",
       "projectName": "MagazzinoWeb",
-      "projectPath": "G:\\Desktop\\ProyectoFinalPOO3\\MagazzinoWeb\\MagazzinoWeb.csproj",
-      "packagesPath": "C:\\Users\\Family\\.nuget\\packages\\",
-      "outputPath": "G:\\Desktop\\ProyectoFinalPOO3\\MagazzinoWeb\\obj\\",
+      "projectPath": "C:\\Users\\David\\Source\\Repos\\ProyectoFinalPOO3\\MagazzinoWeb\\MagazzinoWeb.csproj",
+      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\David\\Source\\Repos\\ProyectoFinalPOO3\\MagazzinoWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Family\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magazzino.Data", "Magazzino
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazzinoWeb", "MagazzinoWeb\MagazzinoWeb.csproj", "{281FB58D-EBAC-4B5B-989C-E7AE769D1A37}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Unit Test Layer", "5. Unit Test Layer", "{B4A88387-5FB4-49E3-AFD1-86485415AA8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
