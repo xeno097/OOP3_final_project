@@ -754,11 +754,10 @@
   },
   "libraries": {
     "EntityFramework/6.2.0": {
-      "sha512": "7u/Xw6dnODaoB8opNC/Uz8nT/LKOxsvJhObYU+m0CErCXdOsyTC1MZwqQoam8lMehLTxBoMBewvWoOQUBaUKsQ==",
+      "sha512": "ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
       "type": "package",
       "path": "entityframework/6.2.0",
       "files": [
-        ".signature.p7s",
         "content/net40/App.config.transform",
         "content/net40/Web.config.transform",
         "entityframework.6.2.0.nupkg.sha512",
@@ -2957,23 +2956,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Family\\.nuget\\packages\\": {},
+    "C:\\Users\\David\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Desktop\\UltimaEdiccion\\ProyectoFinalPOO3\\Magazzino.Models\\Magazzino.Models.csproj",
+      "projectUniqueName": "C:\\Users\\David\\Downloads\\ProyectoFinalPOO3\\Magazzino.Models\\Magazzino.Models.csproj",
       "projectName": "Magazzino.Models",
-      "projectPath": "G:\\Desktop\\UltimaEdiccion\\ProyectoFinalPOO3\\Magazzino.Models\\Magazzino.Models.csproj",
-      "packagesPath": "C:\\Users\\Family\\.nuget\\packages\\",
-      "outputPath": "G:\\Desktop\\UltimaEdiccion\\ProyectoFinalPOO3\\Magazzino.Models\\obj\\",
+      "projectPath": "C:\\Users\\David\\Downloads\\ProyectoFinalPOO3\\Magazzino.Models\\Magazzino.Models.csproj",
+      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\David\\Downloads\\ProyectoFinalPOO3\\Magazzino.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Family\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3024,7 +3023,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Il pacchetto 'EntityFramework 6.2.0' è stato ripristinato mediante '.NETFramework,Version=v4.6.1' e non mediante il framework di destinazione del progetto '.NETCoreApp,Version=v2.1'. Questo pacchetto potrebbe non essere completamente compatibile con il progetto.",
+      "message": "El paquete \"EntityFramework 6.2.0\" se restauró con \".NETFramework,Version=v4.6.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v2.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "EntityFramework",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
