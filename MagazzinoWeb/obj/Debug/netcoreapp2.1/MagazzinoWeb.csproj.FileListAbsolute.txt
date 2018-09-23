@@ -1,0 +1,11 @@
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\bin\Debug\netcoreapp2.1\MagazzinoWeb.deps.json
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\bin\Debug\netcoreapp2.1\MagazzinoWeb.runtimeconfig.json
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\bin\Debug\netcoreapp2.1\MagazzinoWeb.runtimeconfig.dev.json
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\bin\Debug\netcoreapp2.1\MagazzinoWeb.dll
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\obj\Debug\netcoreapp2.1\MagazzinoWeb.csprojAssemblyReference.cache
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\obj\Debug\netcoreapp2.1\MagazzinoWeb.csproj.CoreCompileInputs.cache
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\obj\Debug\netcoreapp2.1\MagazzinoWeb.RazorAssemblyInfo.cache
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\obj\Debug\netcoreapp2.1\MagazzinoWeb.RazorAssemblyInfo.cs
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\obj\Debug\netcoreapp2.1\MagazzinoWeb.AssemblyInfoInputs.cache
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\obj\Debug\netcoreapp2.1\MagazzinoWeb.AssemblyInfo.cs
+C:\Users\David\Source\Repos\ProyectoFinalPOO3\MagazzinoWeb\obj\Debug\netcoreapp2.1\MagazzinoWeb.RazorTargetAssemblyInfo.cache
