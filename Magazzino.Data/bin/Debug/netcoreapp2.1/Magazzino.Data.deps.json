@@ -1,14 +1,15 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "873797d25df9e60148111a2e6b796e77267efdcd"
+    "signature": "f4f87a52b08bb225e92d6709361d1bc1d951f759"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "Magazzino.Data/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "2.2.0-preview2-35157"
+          "Microsoft.EntityFrameworkCore": "2.2.0-preview2-35157",
+          "Microsoft.EntityFrameworkCore.Relational": "2.2.0-preview2-35157"
         },
         "runtime": {
           "Magazzino.Data.dll": {}
@@ -43,6 +44,17 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/2.2.0-preview2-35157": {},
+      "Microsoft.EntityFrameworkCore.Relational/2.2.0-preview2-35157": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.2.0-preview2-35157"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18248"
+          }
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/2.2.0-preview2-35157": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "2.2.0-preview2-35157"
@@ -385,6 +397,13 @@
       "sha512": "sha512-vGWyK6WIlnHAYTGrHBYYYYs2QKx44WYnBJaTaxBhozTLKDNgzlkPTXj0qY3EjO96HjUBPGr7UNrpox7qs1x3WQ==",
       "path": "microsoft.entityframeworkcore.analyzers/2.2.0-preview2-35157",
       "hashPath": "microsoft.entityframeworkcore.analyzers.2.2.0-preview2-35157.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational/2.2.0-preview2-35157": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FehO+dSsEy42xS2OkT96ClLZrF3tOPaql2d8xno1kT2Pb6X/cMXzxeyI7SPchHYfrS1d+e+WqGgI8abOXkixbg==",
+      "path": "microsoft.entityframeworkcore.relational/2.2.0-preview2-35157",
+      "hashPath": "microsoft.entityframeworkcore.relational.2.2.0-preview2-35157.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/2.2.0-preview2-35157": {
       "type": "package",

@@ -6,3 +6,11 @@ C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcore
 C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcoreapp2.1\Magazzino.Models.csproj.CoreCompileInputs.cache
 C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcoreapp2.1\Magazzino.Models.AssemblyInfoInputs.cache
 C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcoreapp2.1\Magazzino.Models.AssemblyInfo.cs
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\bin\Debug\netcoreapp2.1\Magazzino.Models.deps.json
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\bin\Debug\netcoreapp2.1\Magazzino.Models.runtimeconfig.json
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\bin\Debug\netcoreapp2.1\Magazzino.Models.runtimeconfig.dev.json
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\bin\Debug\netcoreapp2.1\Magazzino.Models.dll
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcoreapp2.1\Magazzino.Models.csprojAssemblyReference.cache
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcoreapp2.1\Magazzino.Models.csproj.CoreCompileInputs.cache
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcoreapp2.1\Magazzino.Models.AssemblyInfoInputs.cache
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Models\obj\Debug\netcoreapp2.1\Magazzino.Models.AssemblyInfo.cs

@@ -6,3 +6,12 @@ C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreap
 C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Data\bin\Debug\netcoreapp2.1\Magazzino.Data.pdb
 C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.dll
 C:\Users\David\Source\Repos\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.pdb
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\bin\Debug\netcoreapp2.1\Magazzino.Data.deps.json
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\bin\Debug\netcoreapp2.1\Magazzino.Data.dll
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\bin\Debug\netcoreapp2.1\Magazzino.Data.pdb
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.csprojAssemblyReference.cache
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.csproj.CoreCompileInputs.cache
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.AssemblyInfoInputs.cache
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.AssemblyInfo.cs
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.dll
+C:\Users\David\Downloads\ProyectoFinalPOO3\Magazzino.Data\obj\Debug\netcoreapp2.1\Magazzino.Data.pdb
