@@ -4,7 +4,15 @@ using System.Text;
 
 namespace Magazzino.Data.Infraestructure
 {
-    class DataResult
+    public class DataResult
     {
+        public Boolean Successfull { get; set; } = true;
+        public dynamic Data { get; set; }
+
+        public void LogError(Exception ex)
+        {
+            this.Successfull = false; // cambio mal hecho o hasta compra no procesada
+            this.Data = ex.Message;
+        }
     }
 }

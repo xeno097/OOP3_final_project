@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.0-preview2-35157" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="PayPal" Version="2.0.0-rc2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Magazzino.Data\Magazzino.Data.csproj" />
+    <ProjectReference Include="..\Magazzino.Helpers\Magazzino.Helpers.csproj" />
+    <ProjectReference Include="..\Magazzino.Models\Magazzino.Models.csproj" />
+    <ProjectReference Include="..\Magazzino.Repository\Magazzino.Repository.csproj" />
+    <ProjectReference Include="..\Magazzino.Service\Magazzino.Service.csproj" />
+  </ItemGroup>
+
+</Project>
