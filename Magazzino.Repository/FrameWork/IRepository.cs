@@ -13,7 +13,7 @@ namespace Magazzino.Repository.Framework
         DataResult Insert(T entity);
         DataResult Update(T entity);
         DataResult Delete(T entity);
-
+    
         Boolean SaveChanges();
     }
 }

@@ -20,6 +20,18 @@ namespace Magazzino.Service.Implementations
 
         }
 
+        public ServiceResult Find(int id)
+        {
+            ServiceResult serviceResult = new ServiceResult();
+            serviceResult.Success = true;
+            serviceResult.ResultTitle = Error.GetErrorMessage(Error.CorrectTransaction);
+            serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
+            serviceResult.ResultObject = MapperHelper.Instance.
+                Map<Customer, CustomerViewModel>(
+                    this.Repository.GetAll(i => i.IdCustomer == id).Data);
+
+            return serviceResult;
+        }
     }
 }
 

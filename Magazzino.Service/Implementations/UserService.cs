@@ -20,6 +20,19 @@ namespace Magazzino.Service.Implementations
 
         }
 
+        public ServiceResult Find(string username)
+        {
+            ServiceResult serviceResult = new ServiceResult();
+            serviceResult.Success = true;
+            serviceResult.ResultTitle = Error.GetErrorMessage(Error.CorrectTransaction);
+            serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
+            serviceResult.ResultObject = MapperHelper.Instance.
+                Map<User, UserViewModel>(
+                    this.Repository.GetAll(i => i.UserName == username).Data);
+
+            return serviceResult;
+        }
+
         public ServiceResult ValidateId (int id)
         {
             ServiceResult serviceResult = new ServiceResult();

@@ -9,5 +9,6 @@ namespace Magazzino.Service.Interfaces
     {
         ServiceResult ValidateUser(string username, string password);
         ServiceResult ValidateId(int id);
+        ServiceResult Find(string username);
     }
 }

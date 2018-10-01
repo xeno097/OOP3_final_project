@@ -48,6 +48,8 @@ namespace Magazzino.Repository.FrameWork
             return result;
         }
 
+      
+
         public DataResult GetAll()
         {
 
