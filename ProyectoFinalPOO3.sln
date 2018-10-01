@@ -22,6 +22,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magazzino.web", "Magazzino.web\Magazzino.web.csproj", "{D003DEC7-DBE2-4374-BB4F-0A569A6476E1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magazzino.Helpers", "Magazzino.Helpers\Magazzino.Helpers.csproj", "{8D263A68-CAE0-4264-B992-7CDA8A650C79}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B8B8C9C-25B9-4DD1-84B2-DA02AB7DF548} = {0B8B8C9C-25B9-4DD1-84B2-DA02AB7DF548}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magazzino.Service", "Magazzino.Service\Magazzino.Service.csproj", "{430EBC89-4F00-4555-AC67-002D2AB940C3}"
 EndProject

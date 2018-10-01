@@ -10,10 +10,10 @@ using Magazzino.Service.Interfaces;
 
 namespace Magazzino.Service.Implementations
 {
-    public class ProductSerive :
+    public class ProductService :
     BaseService<ProductViewModel, Product>, IProductService
     {
-        public ProductSerive(
+        public ProductService(
             IRepository<Product> productRepository)
             : base(productRepository)
         {

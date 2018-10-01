@@ -8,5 +8,6 @@ namespace Magazzino.Service.Interfaces
     public interface IUserService : IBaseService<UserViewModel>
     {
         ServiceResult ValidateUser(string username, string password);
+        ServiceResult ValidateId(int id);
     }
 }

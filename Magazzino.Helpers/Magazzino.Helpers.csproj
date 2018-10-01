@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Magazzino.Data\Magazzino.Data.csproj" />
     <ProjectReference Include="..\Magazzino.Models\Magazzino.Models.csproj" />
+    <ProjectReference Include="..\Magazzino.Repository\Magazzino.Repository.csproj" />
   </ItemGroup>
 
 </Project>
