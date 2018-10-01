@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Magazzino.Repository.Framework;
 using Magazzino.Repository.FrameWork;
+using Magazzino.Service.Implementations;
+using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,7 +36,13 @@ namespace Magazzino.web
             });
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            //services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<ISellerService, SellerService>();
+            services.AddTransient<ISalesService, SalesService>();
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
