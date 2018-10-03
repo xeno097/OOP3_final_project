@@ -4,6 +4,8 @@ using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Collections.Generic;
+using Magazzino.Repository.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Magazzino.web.Controllers
 {
@@ -11,9 +13,11 @@ namespace Magazzino.web.Controllers
     public class SellerController : Controller
     {
         private readonly ISellerService _sellerServices;
+        private ApplicationContext db;
 
         public SellerController(ISellerService sellerServices)
         {
+     
             this._sellerServices = sellerServices;
         }
 
@@ -25,17 +29,19 @@ namespace Magazzino.web.Controllers
             return Json(result);
         }
 
-        //GET: Account/Index
-        public ActionResult SellerContact()
+        //GET: Seller/Index
+        public ActionResult Index()
         {
-            return View();
+            var result = (List<SellerViewModel>)_sellerServices.GetAll().ResultObject;
+
+            return View(result.ToList());
         }
 
         [HttpGet("find")]
         public JsonResult SellerFind(string company)
         {
             var result = (List<SellerViewModel>)_sellerServices.GetAll().ResultObject;
-            var filter = result.Where(x => x.CompanyM == company);
+            var filter = result.Where(x => x.Company == company);
 
             var result2 = _sellerServices.Find(company);
 

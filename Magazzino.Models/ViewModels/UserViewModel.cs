@@ -8,12 +8,12 @@ namespace Magazzino.Models
 {
     public class UserViewModel : BaseViewModel
     {
-		public int IdUserM { get; set; }
+		public int IdUser { get; set; }
 		[MaxLength(50)]
-		public string UserNameM { get; set; }
+		public string UserName { get; set; }
         [MaxLength(50)]
-        public string PassowordM { get; set; }
+        public string Passoword { get; set; }
 		[MaxLength(50)]
-		public string TypeM { get; set; }
+		public string Type { get; set; }
 	}
 }

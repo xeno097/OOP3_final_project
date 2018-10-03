@@ -8,18 +8,21 @@ namespace Magazzino.Models
 {
     public class SellerViewModel : BaseViewModel
     {
-		public int IdSellerM { get; set; }
+		public int IdSeller { get; set; }
 		[MaxLength(50)]
-		public string CompanyM { get; set; }
+		public string Company { get; set; }
 		[MaxLength(50)]
-		public string TelM { get; set; }
+		public string Tel { get; set; }
 		[MaxLength(150)]
-		public string LocationM { get; set; }
+		public string Location { get; set; }
+        
 		[MaxLength(50)]
-		public string CalM { get; set; }
+        public string Mail { get; set; }
+        [MaxLength(250)]
+		public string Cal { get; set; }
 		[MaxLength(150)]
-		public string PostM { get; set; }
+		public string Post { get; set; }
 		[MaxLength(250)]
-		public string PolicyM { get; set; }
+		public string Policy { get; set; }
 	}
 }

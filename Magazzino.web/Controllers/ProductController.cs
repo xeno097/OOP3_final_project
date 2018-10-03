@@ -13,7 +13,7 @@ namespace Magazzino.web.Controllers
     {
         private readonly IProductService _productService;
 
-        private ApplicationContext db = new ApplicationContext();
+        //private ApplicationContext db = new ApplicationContext();
 
         public ProductController(IProductService productService)
         {
