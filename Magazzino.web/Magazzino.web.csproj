@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Magazzino.Service\Magazzino.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Product\" />
+  </ItemGroup>
+
 </Project>

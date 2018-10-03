@@ -25,6 +25,12 @@ namespace Magazzino.web.Controllers
             return Json(result);
         }
 
+        //GET: Account/Index
+        public ActionResult SellerContact()
+        {
+            return View();
+        }
+
         [HttpGet("find")]
         public JsonResult SellerFind(string company)
         {

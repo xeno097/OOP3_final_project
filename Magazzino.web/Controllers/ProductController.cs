@@ -4,6 +4,7 @@ using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Collections.Generic;
+using Magazzino.Repository.Migrations;
 
 namespace Magazzino.web.Controllers
 {
@@ -11,6 +12,8 @@ namespace Magazzino.web.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+
+        private ApplicationContext db = new ApplicationContext();
 
         public ProductController(IProductService productService)
         {
@@ -50,6 +53,12 @@ namespace Magazzino.web.Controllers
             var result = _productService.Delete(productViewModel);
 
             return Json(result.Success);
+        }
+        
+        //GET: Product/Index
+        public ActionResult Product()
+        {
+            return View();
         }
 
 

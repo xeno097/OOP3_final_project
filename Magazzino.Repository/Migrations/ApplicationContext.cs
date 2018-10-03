@@ -14,10 +14,12 @@ namespace Magazzino.Repository.Migrations
         public DbSet <Seller> Sellers { get; set; }
         public DbSet <Product> Products { get; set; }
 
-        public ApplicationContext (DbContextOptions<ApplicationContext> options ) : base(options)
+        public ApplicationContext() : base()
         {
 
         }
+
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
