@@ -89,5 +89,11 @@ namespace Magazzino.web.Controllers
                 return View();
             }
         }
+
+        //GET: Account/Registro
+        public ActionResult Registro()
+        {
+            return View();
+        }
     }
 }
