@@ -7,7 +7,6 @@ namespace Magazzino.Service.Interfaces
 {
     public interface ISellerService : IBaseService<SellerViewModel>
     {
-
         ServiceResult Find(string company);
     }
 }

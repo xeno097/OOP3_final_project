@@ -13,8 +13,10 @@ namespace Magazzino.Helpers.Utils
         {
             Mapper.Initialize(conf =>
             {
-               // conf.CreateMap<User, UserViewModel>().ForMember(i=> i.maria, if. );
-                conf.CreateMap<Product, ProductViewModel>();
+                // conf.CreateMap<User, UserViewModel>().ForMember(i=> i.maria, if. );
+                conf.CreateMap<Product, ProductViewModel>().ForMember(i => i.IdProductM, opt => opt.MapFrom(x => x.IdProduct));
+                conf.CreateMap<Product, ProductViewModel>().ForMember(i => i.ProductNameM, opt => opt.MapFrom(x => x.ProductName));
+
                 conf.CreateMap<Customer, CustomerViewModel>();
                 conf.CreateMap<Sales, SalesViewModel>();
                 conf.CreateMap<Seller, SellerViewModel>();
