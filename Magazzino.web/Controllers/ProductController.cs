@@ -7,22 +7,27 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Magazzino.Data.Entities;
 using Magazzino.Repository.Migrations;
+using Magazzino.Service.Interfaces;
 
 namespace Magazzino.web.Controllers
 {
     public class ProductController : Controller
     {
         private readonly ApplicationContext _context;
+        private readonly IProductService productService;
 
-        public ProductController(ApplicationContext context)
+        public ProductController(IProductService _productService, ApplicationContext context)
         {
+            productService = _productService;
             _context = context;
         }
 
         // GET: Product
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            var products = productService.GetAll();
+
+            return View(await products.ResultObject);
         }
 
         // GET: Product/Details/5
