@@ -21,7 +21,7 @@ namespace Magazzino.Models
         [MaxLength(50)]
 		public String CalM { get; set; }
 
-        public byte?[] ImgM { get; set; }
+        public string ImgM { get; set; }
 
         [MaxLength(50)]
 		public String CategoryM { get; set; }

@@ -14,7 +14,7 @@ namespace Magazzino.Data.Entities
         public int Money { get; set; }
         public int IdSellers { get; set; }
         public String Cal { get; set; }
-        public byte?[] Img { get; set; }
+        public string Img { get; set; }
         public String Category { get; set; }
     }
 }

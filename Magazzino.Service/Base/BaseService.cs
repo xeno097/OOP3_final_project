@@ -50,7 +50,7 @@ namespace  Magazzino.Service.Base
 
             serviceResult.Success = true;
             serviceResult.ResultTitle = Error.GetErrorMessage(Error.CorrectTransaction);
-            serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
+            //serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
 
             serviceResult.ResultObject = 
                 MapperHelper.Instance.Map<List<Ent>, List<Vm>>
