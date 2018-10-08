@@ -10,11 +10,11 @@ namespace Magazzino.Data.Entities
     {
         public int IdProduct { get; set; }
         public string ProductName { get; set; }
-        public string Details { get; set; }
+        public String Details { get; set; }
         public int Money { get; set; }
         public int IdSellers { get; set; }
-        public string Cal { get; set; }
-        public string Imagen { get; set; }
-        public string Category { get; set; }
+        public String Cal { get; set; }
+        public string Img { get; set; }
+        public String Category { get; set; }
     }
 }

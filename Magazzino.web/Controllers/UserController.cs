@@ -29,7 +29,7 @@ namespace Magazzino.web.Controllers
         public JsonResult UserFind(string username)
         {
             var result = (List<UserViewModel>)_userService.GetAll().ResultObject;
-            var filter = result.Where(x => x.UserName == username);
+            var filter = result.Where(x => x.UserNameM == username);
 
             var result2 = _userService.Find(username);
 
@@ -43,7 +43,5 @@ namespace Magazzino.web.Controllers
 
             return Json(result.Success);
         }
-
-       
     }
 }

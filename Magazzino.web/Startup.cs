@@ -38,7 +38,7 @@ namespace Magazzino.web
             });
 
             services.AddDbContext<ApplicationContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),b => b.MigrationsAssembly("Magazzino.Repository")));
 
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

@@ -1,23 +1,7 @@
-﻿@model List<Magazzino.Models.SellerViewModel>
-
+﻿
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
 
 <h2>SellerContact</h2>
-
-<div class="container">
-    <div>
-        @foreach (var x in Model)
-        {
-            <ul>
-                <li>No: @x.IdSeller</li>
-                <li>UserName: @x.Company</li>
-                <li>Tel: @x.Tel</li>
-                <li>Location: @x.Location</li>
-                <li>Mail: @x.Mail</li>
-            </ul>
-        }
-    </div>
-</div>
 

@@ -6,8 +6,7 @@ namespace Magazzino.Data
 {
     public class BaseEntity
     {
-        public int? Id { get; set; }
-        public string RowId { get; set; }
-   
+        public Int32 Id { get; set; }
+        public String RowId { get; set; }
     }
 }
