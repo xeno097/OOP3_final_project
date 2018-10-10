@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Magazzino.Data.Entities.Product>
+﻿@model IEnumerable<Magazzino.Models.ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,28 +13,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdProduct)
+                @Html.DisplayNameFor(model => model.IdProductM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                @Html.DisplayNameFor(model => model.ProductNameM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Details)
+                @Html.DisplayNameFor(model => model.DetailsM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Money)
+                @Html.DisplayNameFor(model => model.MoneyM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdSellers)
+                @Html.DisplayNameFor(model => model.IdSellersM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cal)
+                @Html.DisplayNameFor(model => model.CalM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Img)
+                @Html.DisplayNameFor(model => model.ImgM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayNameFor(model => model.CategoryM)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.RowId)
@@ -46,28 +46,28 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.IdProduct)
+                @Html.DisplayFor(modelItem => item.IdProductM)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
+                @Html.DisplayFor(modelItem => item.ProductNameM)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Details)
+                @Html.DisplayFor(modelItem => item.DetailsM)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Money)
+                @Html.DisplayFor(modelItem => item.MoneyM)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdSellers)
+                @Html.DisplayFor(modelItem => item.IdSellersM)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cal)
+                @Html.DisplayFor(modelItem => item.CalM)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Img)
+                @Html.DisplayFor(modelItem => item.ImgM)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category)
+                @Html.DisplayFor(modelItem => item.CategoryM)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RowId)
