@@ -12,7 +12,7 @@ namespace Magazzino.Models
 		[MaxLength(50)]
 		public string UserNameM { get; set; }
         [MaxLength(50)]
-        public string PassowordM { get; set; }
+        public string PasswordM { get; set; }
 		[MaxLength(50)]
 		public string TypeM { get; set; }
 	}

@@ -1,26 +1,25 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Sign in";
 }
 
 <h2>Sign in</h2>
 
 <div class="container">
-    <form>
+    <form asp-action="Index">
         <div class="form-group">
             <label for="exampleInputEmail1">Nombre de Usuario</label>
-            <input type="text" class="form-control" id="" aria-describedby="" placeholder="Usuario">
+            <input type="text" class="form-control" name="User" aria-describedby="" placeholder="Usuario">
             <small id="emailHelp" class="form-text text-muted">No tienes una cuenta creada? Registrate @Html.ActionLink("aqui","Registro","Account")</small>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" name="Password" id="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">---Recuerdame</label>
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        <input type="submit" class="btn btn-primary">Iniciar sesión</a>
     </form>
 </div>     
 
