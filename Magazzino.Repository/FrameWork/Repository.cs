@@ -69,6 +69,11 @@ namespace Magazzino.Repository.FrameWork
             return result;
         }
 
+        public int GenerateId(Expression<Func<T, int>> specification)
+        {
+            return Int32.Parse(dbSet.OrderByDescending(specification).FirstOrDefault().ToString());
+        }
+
         public DataResult GetAll(Expression<Func<T, bool>> specification, params Expression<Func<T, object>>[] includeProperties)
         {
             DataResult result = new DataResult();
