@@ -4,40 +4,47 @@ using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Magazzino.Repository.Migrations;
+using Magazzino.Models.Infraestruture;
 
 namespace Magazzino.web.Controllers
 {
-    [Route("web/[controller]")]
+    
     public class SellerController : Controller
     {
-        private readonly ISellerService _sellerServices;
+        private readonly ISellerService sellerServices;
+        private readonly ApplicationContext _context;
 
-        public SellerController(ISellerService sellerServices)
+        public SellerController(ISellerService _SellerServices, ApplicationContext context)
         {
-            this._sellerServices = sellerServices;
+            sellerServices = _SellerServices;
+            _context = context;
         }
 
         [HttpGet("all")]
         public JsonResult SellerList()
         {
-            var result = _sellerServices.GetAll();
+            var result = sellerServices.GetAll();
 
             return Json(result);
         }
 
-        //GET: Account/Index
-        public ActionResult SellerContact()
+        //GET: Seller/Index
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var seller = sellerServices.GetAll();
+
+            return View(seller.ResultObject);
         }
 
         [HttpGet("find")]
         public JsonResult SellerFind(string company)
         {
-            var result = (List<SellerViewModel>)_sellerServices.GetAll().ResultObject;
+            var result = (List<SellerViewModel>)sellerServices.GetAll().ResultObject;
             var filter = result.Where(x => x.CompanyM == company);
 
-            var result2 = _sellerServices.Find(company);
+            var result2 = sellerServices.Find(company);
 
             return Json(result);
         }
@@ -45,7 +52,7 @@ namespace Magazzino.web.Controllers
         [HttpPost("add")]
         public JsonResult SellerInsert(SellerViewModel sellerViewModel)
         {
-            var result = _sellerServices.Insert( sellerViewModel);
+            var result = sellerServices.Insert( sellerViewModel);
 
             return Json(result.Success);
         }
@@ -53,7 +60,7 @@ namespace Magazzino.web.Controllers
         [HttpDelete("delete")]
         public JsonResult SellerDelete(SellerViewModel sellerViewModel)
         {
-            var result = _sellerServices.Delete(sellerViewModel);
+            ServiceResult result = sellerServices.Delete(sellerViewModel);
 
             return Json(result.Success);
         }
