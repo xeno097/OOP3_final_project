@@ -91,7 +91,7 @@ namespace  Magazzino.Service.Base
             return serviceResult;
         }
 
-        public ServiceResult Insert(Vm viewModel)
+        public virtual ServiceResult Insert(Vm viewModel)
         {
             ServiceResult serviceResult = new ServiceResult();
 
@@ -134,6 +134,12 @@ namespace  Magazzino.Service.Base
                 Instance.Map<Ent, Vm>(result.Data);
 
             return serviceResult;
+        }
+
+        public int GenerateId()
+        {
+            int id = this.Repository.GenerateId(i => i.Id);
+            return id;
         }
     }
 }

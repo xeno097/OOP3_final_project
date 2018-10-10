@@ -62,6 +62,22 @@ namespace Magazzino.Service.Implementations
 
         }
 
-       
+        public override ServiceResult Insert(UserViewModel viewModel)
+        {
+            ServiceResult serviceResult = new ServiceResult();
+
+            var Entity = MapperHelper.Instance.Map<UserViewModel, User>(viewModel);
+            Entity.RowId = Guid.NewGuid().ToString();
+
+            var result = this.Repository.Insert(Entity);
+
+            serviceResult.Success = result.Successfull;
+            serviceResult.ResultTitle = (result.Successfull ? Error.GetErrorMessage(Error.CorrectTransaction) : Error.GetErrorMessage(Error.InternalServerError));
+            serviceResult.Messages.Add(result.Successfull ? "Inserted" : "Failed");
+            serviceResult.ResultObject = MapperHelper.Instance.Map<User, UserViewModel>(result.Data);
+
+            return serviceResult;
+        }
+
     }
 }

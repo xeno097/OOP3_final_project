@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Magazzino.Data.Entities;
 using Magazzino.Repository.Migrations;
 using Magazzino.Service.Interfaces;
-using Magazzino.Models;
 
 namespace Magazzino.web.Controllers
 {
@@ -60,7 +59,7 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId  ")] ProductViewModel product)
+        public async Task<IActionResult> Create([Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +91,7 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId")] ProductViewModel product)
+        public async Task<IActionResult> Edit(int id, [Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] Product product)
         {
             if (id != product.Id)
             {
@@ -108,8 +107,7 @@ namespace Magazzino.web.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    int? id1 = product.Id;
-                    if (!ProductExists(id1))
+                    if (!ProductExists(product.Id))
                     {
                         return NotFound();
                     }
@@ -121,11 +119,6 @@ namespace Magazzino.web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
-        }
-
-        private bool ProductExists(int? id1)
-        {
-            throw new NotImplementedException();
         }
 
         // GET: Product/Delete/5
