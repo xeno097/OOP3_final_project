@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Magazzino.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,14 @@ namespace Magazzino.web.Controllers
         // GET: Account
         public ActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(IFormCollection user)
+        {
+
+            string home = user["User"];
             return View();
         }
 
@@ -96,7 +105,32 @@ namespace Magazzino.web.Controllers
             return View();
         }
 
-      
-    
+        [HttpPost]
+        public ActionResult Registro(IFormCollection form)
+        {
+            UserViewModel user = new UserViewModel();
+            user.UserNameM = form["UserNameM"];
+            user.PasswordM = form["PasswordM"];
+            user.TypeM = form["TypeM"];
+            if(user.TypeM == "0")
+            {
+                CustomerViewModel customer = new CustomerViewModel();
+                customer.LastNameM = form["LastNameM"];
+                customer.LocationM = form["Location"];
+                customer.MailM = form["MailM"];
+                customer.MetodoPagoM = form["MetodoPagoM"];
+                customer.NameM = form["NameM"];
+            }
+
+            if(user.TypeM == "1")
+            {
+                SellerViewModel seller = new SellerViewModel();
+                seller.LocationM = form["LocationM"];
+                seller.PolicyM = form["PolicyM"];
+                seller.PostM = form["PostM"];
+                seller.TelM = form["TelM"];
+            }
+            return View();
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Magazzino.web.Controllers
         {
             var products = productService.GetAll();
 
-            return View(await products.ResultObject);
+            return View(products.ResultObject);
         }
 
         // GET: Product/Details/5
