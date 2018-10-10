@@ -11,6 +11,5 @@ namespace Magazzino.Service.Base
         ServiceResult GetAll();
         ServiceResult GetById(int id);
         ServiceResult GetByRowId(string rowId);
-        int GenerateId();
     }
 }

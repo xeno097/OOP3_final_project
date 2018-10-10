@@ -10,5 +10,6 @@ namespace Magazzino.Models.Infraestruture
         public dynamic ResultObject { get; set; }
         public string ResultTitle { get; set; }
         public List<string> Messages { get; set; }
+
     }
 }

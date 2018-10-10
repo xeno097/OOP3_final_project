@@ -135,11 +135,5 @@ namespace  Magazzino.Service.Base
 
             return serviceResult;
         }
-
-        public int GenerateId()
-        {
-            int id = this.Repository.GenerateId(i => i.Id);
-            return id;
-        }
     }
 }
