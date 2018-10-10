@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Magazzino.Models;
+using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,17 @@ namespace Magazzino.web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IUserService userService;
+        private readonly ICustomerService customerService;
+        private readonly ISellerService sellerService;
+
+        public AccountController(IUserService _userService, ICustomerService _customerService, ISellerService _sellerService)
+        {
+            userService = _userService;
+            customerService = _customerService;
+            sellerService = _sellerService;
+        }
+
         // GET: Account
         public ActionResult Index()
         {
@@ -109,27 +121,40 @@ namespace Magazzino.web.Controllers
         public ActionResult Registro(IFormCollection form)
         {
             UserViewModel user = new UserViewModel();
+            int id = userService.GenerateId();
+            user.Id = id;
+            user.IdUserM = id;
             user.UserNameM = form["UserNameM"];
             user.PasswordM = form["PasswordM"];
             user.TypeM = form["TypeM"];
+            userService.Insert(user);
             if(user.TypeM == "0")
             {
-                CustomerViewModel customer = new CustomerViewModel();
-                customer.LastNameM = form["LastNameM"];
-                customer.LocationM = form["Location"];
-                customer.MailM = form["MailM"];
-                customer.MetodoPagoM = form["MetodoPagoM"];
-                customer.NameM = form["NameM"];
+                CustomerViewModel customer = new CustomerViewModel
+                {
+                    IdCustomerM = id,
+                    LastNameM = form["LastNameM"],
+                    LocationM = form["Location"],
+                    MailM = form["MailM"],
+                    MetodoPagoM = form["MetodoPagoM"],
+                    NameM = form["NameM"]
+                };
+                customerService.Insert(customer);
             }
 
             if(user.TypeM == "1")
             {
-                SellerViewModel seller = new SellerViewModel();
-                seller.LocationM = form["LocationM"];
-                seller.PolicyM = form["PolicyM"];
-                seller.PostM = form["PostM"];
-                seller.TelM = form["TelM"];
+                SellerViewModel seller = new SellerViewModel
+                {
+                    IdSellerM = id,
+                    LocationM = form["LocationM"],
+                    PolicyM = form["PolicyM"],
+                    PostM = form["PostM"],
+                    TelM = form["TelM"]
+                };
+                sellerService.Insert(seller);
             }
+
             return View();
         }
     }
