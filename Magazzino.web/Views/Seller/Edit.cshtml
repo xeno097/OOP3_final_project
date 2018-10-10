@@ -1,0 +1,66 @@
+﻿@model Magazzino.Models.SellerViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Seller</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdSellerM" class="control-label"></label>
+                <input asp-for="IdSellerM" class="form-control" />
+                <span asp-validation-for="IdSellerM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyM" class="control-label"></label>
+                <input asp-for="CompanyM" class="form-control" />
+                <span asp-validation-for="CompanyM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelM" class="control-label"></label>
+                <input asp-for="TelM" class="form-control" />
+                <span asp-validation-for="TelM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationM" class="control-label"></label>
+                <input asp-for="LocationM" class="form-control" />
+                <span asp-validation-for="LocationM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CalM" class="control-label"></label>
+                <input asp-for="CalM" class="form-control" />
+                <span asp-validation-for="CalM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostM" class="control-label"></label>
+                <input asp-for="PostM" class="form-control" />
+                <span asp-validation-for="PostM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyM" class="control-label"></label>
+                <input asp-for="PolicyM" class="form-control" />
+                <span asp-validation-for="PolicyM" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RowId" class="control-label"></label>
+                <input asp-for="RowId" class="form-control" />
+                <span asp-validation-for="RowId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

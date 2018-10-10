@@ -68,14 +68,9 @@ namespace Magazzino.Helpers.Utils
                                                      .ForMember(i => i.IdUserM, opt => opt.MapFrom(x => x.IdUser))
                                                      .ForMember(i => i.UserNameM, opt => opt.MapFrom(x => x.UserName))
                                                      .ForMember(i => i.PasswordM, opt => opt.MapFrom(x => x.Password))
-                                                     .ForMember(i => i.TypeM, opt => opt.MapFrom(x => x.Type));
+                                                     .ForMember(i => i.TypeM, opt => opt.MapFrom(x => x.Type)).ReverseMap();
 
-                conf.CreateMap<UserViewModel, User>().ForMember(i => i.Id, opt => opt.MapFrom(x => x.Id))
-                                                    .ForMember(i => i.RowId, opt => opt.MapFrom(x => x.RowId))
-                                                    .ForMember(i => i.IdUser, opt => opt.MapFrom(x => x.IdUserM))
-                                                    .ForMember(i => i.UserName, opt => opt.MapFrom(x => x.UserNameM))
-                                                    .ForMember(i => i.Type, opt => opt.MapFrom(x => x.TypeM))
-                                                    .ForMember(i => i.Password, opt => opt.MapFrom(x => x.PasswordM));
+                
 
             });
         }
