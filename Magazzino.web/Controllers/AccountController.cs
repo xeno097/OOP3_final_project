@@ -8,6 +8,7 @@ using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Web;
+using Magazzino.web.Models;
 
 namespace Magazzino.web.Controllers
 {
@@ -33,14 +34,14 @@ namespace Magazzino.web.Controllers
         [HttpPost]
         public ActionResult Index(IFormCollection user)
         {
-            UserViewModel usuario = userService.Find(user["User"]).ResultObject();
+            string nombre = user["User"];
+            UserViewModel usuario = userService.ValidateUser(nombre, user["Password"]).ResultObject;
             if (usuario.PasswordM == user["Password"])
             {
-                
+                Global.LogIn = true;
+                Global.User = usuario;
                 return View();
             }
-
-            //Session["sessionString"] = "sd";
             return View();
         }
 

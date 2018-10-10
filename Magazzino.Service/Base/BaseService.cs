@@ -51,10 +51,9 @@ namespace  Magazzino.Service.Base
             serviceResult.Success = true;
             serviceResult.ResultTitle = Error.GetErrorMessage(Error.CorrectTransaction);
             serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
-            var datos = this.Repository.GetAll().Data;
             serviceResult.ResultObject = 
                 MapperHelper.Instance.Map<List<Ent>, List<Vm>>
-            (datos);
+            (this.Repository.GetAll().Data[0]);
 
             return serviceResult;
         }

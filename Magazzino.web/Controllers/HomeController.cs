@@ -8,14 +8,15 @@ using Magazzino.web.Models;
 using Microsoft.AspNetCore.Http;
 using Magazzino.Service.Implementations;
 using Magazzino.Models;
+using Magazzino.Service.Interfaces;
 
 namespace Magazzino.web.Controllers
 {
     public class HomeController : Controller
     {
-        ProductService productService;
+        IProductService productService;
 
-        public HomeController(ProductService _productService)
+        public HomeController(IProductService _productService)
         {
             productService = _productService;
         }

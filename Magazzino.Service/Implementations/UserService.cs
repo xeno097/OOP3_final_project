@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using Magazzino.Data.Entities;
 using Magazzino.Helpers.Infraestructure;
 using Magazzino.Helpers.Utils;
 using Magazzino.Models;
+using System.Linq;
 using Magazzino.Models.Infraestruture;
 using Magazzino.Repository.Framework;
 using Magazzino.Service.Base;
@@ -26,9 +28,9 @@ namespace Magazzino.Service.Implementations
             serviceResult.Success = true;
             serviceResult.ResultTitle = Error.GetErrorMessage(Error.CorrectTransaction);
             serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
+            User variable = this.Repository.GetAll(i => i.UserName == username).Data.FirstOrDefault();
             serviceResult.ResultObject = MapperHelper.Instance.
-                Map<User, UserViewModel>(
-                    this.Repository.GetAll(i => i.UserName == username).Data);
+                Map<User, UserViewModel>(variable);
 
             return serviceResult;
         }
@@ -56,10 +58,9 @@ namespace Magazzino.Service.Implementations
             serviceResult.ResultObject = MapperHelper.Instance.
                 Map<User, UserViewModel>(
                     this.Repository.GetAll(i => i.UserName == username
-                                           && i.Password == password).Data);
+                                           && i.Password == password).Data[0]);
 
             return serviceResult;
-
         }
 
         public override ServiceResult Insert(UserViewModel viewModel)

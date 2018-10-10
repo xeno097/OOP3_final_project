@@ -86,12 +86,11 @@ namespace Magazzino.Repository.FrameWork
 
             try
             {
-                if (includeProperties.Length > 0)
-                {
-                    result.Data = GetAllIncluding(includeProperties).Where(specification).ToList();
+                
+                result.Data = dbSet.Where(specification).ToList();
 
-                    result.Successfull = true;
-                }
+                result.Successfull = true;
+                
             }
             catch (Exception ex)
             {
