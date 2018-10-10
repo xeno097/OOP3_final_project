@@ -9,6 +9,6 @@ namespace Magazzino.Models.Infraestruture
         public Boolean Success { get; set; }
         public dynamic ResultObject { get; set; }
         public string ResultTitle { get; set; }
-        public List<string> Messages { get; set; }
+        public List<string> Messages { get; set; } = new List<string>();
     }
 }

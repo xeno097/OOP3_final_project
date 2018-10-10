@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Magazzino.Data.Entities;
 using Magazzino.Models;
 using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -31,8 +32,14 @@ namespace Magazzino.web.Controllers
         [HttpPost]
         public ActionResult Index(IFormCollection user)
         {
+            UserViewModel usuario = userService.Find(user["User"]).ResultObject();
+            if (usuario.PasswordM == user["Password"])
+            {
+                
+                return View();
+            }
+            
 
-            string home = user["User"];
             return View();
         }
 
@@ -122,7 +129,6 @@ namespace Magazzino.web.Controllers
         {
             UserViewModel user = new UserViewModel();
             int id = userService.GenerateId();
-            user.Id = id;
             user.IdUserM = id;
             user.UserNameM = form["UserNameM"];
             user.PasswordM = form["PasswordM"];
@@ -134,7 +140,7 @@ namespace Magazzino.web.Controllers
                 {
                     IdCustomerM = id,
                     LastNameM = form["LastNameM"],
-                    LocationM = form["Location"],
+                    LocationM = form["LocationM"],
                     MailM = form["MailM"],
                     MetodoPagoM = form["MetodoPagoM"],
                     NameM = form["NameM"]

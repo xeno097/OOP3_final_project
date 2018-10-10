@@ -1,4 +1,5 @@
 ﻿using System;
+using Magazzino.Data;
 using Magazzino.Models.Infraestruture;
 
 namespace Magazzino.Service.Base

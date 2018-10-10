@@ -50,7 +50,7 @@ namespace  Magazzino.Service.Base
 
             serviceResult.Success = true;
             serviceResult.ResultTitle = Error.GetErrorMessage(Error.CorrectTransaction);
-            //serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
+            serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
             var datos = this.Repository.GetAll().Data;
             serviceResult.ResultObject = 
                 MapperHelper.Instance.Map<List<Ent>, List<Vm>>
@@ -91,7 +91,7 @@ namespace  Magazzino.Service.Base
             return serviceResult;
         }
 
-        public ServiceResult Insert(Vm viewModel)
+        public virtual ServiceResult Insert(Vm viewModel)
         {
             ServiceResult serviceResult = new ServiceResult();
 
