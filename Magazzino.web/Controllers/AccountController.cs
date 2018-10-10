@@ -7,6 +7,7 @@ using Magazzino.Models;
 using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Web;
 
 namespace Magazzino.web.Controllers
 {
@@ -38,8 +39,8 @@ namespace Magazzino.web.Controllers
                 
                 return View();
             }
-            
 
+            //Session["sessionString"] = "sd";
             return View();
         }
 

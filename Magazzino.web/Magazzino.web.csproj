@@ -22,4 +22,10 @@
     <ProjectReference Include="..\Magazzino.Service\Magazzino.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web">
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_32\System.Web\2.0.0.0__b03f5f7f11d50a3a\System.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

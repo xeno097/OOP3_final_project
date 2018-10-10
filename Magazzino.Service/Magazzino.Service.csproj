@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Implementations\appsettings.Development.json" />
+    <None Remove="Implementations\appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Implementations\appsettings.Development.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Implementations\appsettings.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Infraestructure\" />
   </ItemGroup>
 
