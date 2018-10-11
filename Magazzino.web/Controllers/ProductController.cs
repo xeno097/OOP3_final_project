@@ -89,7 +89,11 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public async Task<IActionResult> Edit(int id, [Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] ProductViewModel product)
+=======
+        public async Task<IActionResult> Edit(int id, [Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId")] ProductViewModel product)
+>>>>>>> 5376efebe8a45a32345886f2164622d84be18a7c
         {
             if (id != product.Id)
             {
@@ -100,12 +104,12 @@ namespace Magazzino.web.Controllers
             {
                 /*try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    productService.Update(product);
+                    productService.Save(product);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (!ProductExists((int)product.Id))
                     {
                         return NotFound();
                     }
@@ -127,7 +131,7 @@ namespace Magazzino.web.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
+            var product = productService.Delete();
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -143,17 +147,27 @@ namespace Magazzino.web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+<<<<<<< HEAD
             //var product = await _context.Products.FindAsync(id);
             //_context.Products.Remove(product);
             //await _context.SaveChangesAsync();
+=======
+            var product = productService.find(id);
+            productService.delete(id);
+           productService.Save(product
+>>>>>>> 5376efebe8a45a32345886f2164622d84be18a7c
             return RedirectToAction(nameof(Index));
         }
 
 
         private bool ProductExists(int id)
         {
+<<<<<<< HEAD
             //return _context.Products.Any(e => e.Id == id);
             return false;
+=======
+            return productService.GetById(e => e.Id == id);
+>>>>>>> 5376efebe8a45a32345886f2164622d84be18a7c
         }
 
 
