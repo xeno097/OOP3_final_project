@@ -55,10 +55,13 @@ namespace Magazzino.Service.Implementations
             serviceResult.Success = true;
             serviceResult.ResultTitle = Error.GetErrorMessage(Error.CorrectTransaction);
             serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
+
+            var result =
+                    (User)(this.Repository.GetAll(i => i.UserName == username
+                                           && i.Password == password).Data);
+
             serviceResult.ResultObject = MapperHelper.Instance.
-                Map<User, UserViewModel>(
-                    this.Repository.GetAll(i => i.UserName == username
-                                           && i.Password == password).Data[0]);
+                Map<User, UserViewModel>(result);
 
             return serviceResult;
         }

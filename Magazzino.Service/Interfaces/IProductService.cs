@@ -9,7 +9,9 @@ namespace Magazzino.Service.Interfaces
     {
 
         ServiceResult Find(string product);
-       
+        ServiceResult find(int id);
+        ServiceResult Save(ProductViewModel product);
+        ServiceResult delete(int id);
       
     }
 }

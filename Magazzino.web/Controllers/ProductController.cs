@@ -8,18 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using Magazzino.Data.Entities;
 using Magazzino.Repository.Migrations;
 using Magazzino.Service.Interfaces;
+using Magazzino.Models;
 
 namespace Magazzino.web.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
-        private readonly ApplicationContext _context;
+        //private readonly ApplicationContext _context;
         private readonly IProductService productService;
 
-        public ProductController(IProductService _productService, ApplicationContext context)
+        public ProductController(IProductService _productService, IUserService userService) : base(userService)
         {
             productService = _productService;
-            _context = context;
         }
 
         // GET: Product
@@ -38,8 +38,7 @@ namespace Magazzino.web.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = productService.GetById((int)id);
             if (product == null)
             {
                 return NotFound();
@@ -59,12 +58,11 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] Product product)
+        public async Task<IActionResult> Create([Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] ProductViewModel product)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                productService.Insert(product);
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
@@ -78,7 +76,7 @@ namespace Magazzino.web.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var product = productService.GetById((int)id);
             if (product == null)
             {
                 return NotFound();
@@ -91,7 +89,7 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId")] ProductViewModel product)
         {
             if (id != product.Id)
             {
@@ -102,12 +100,12 @@ namespace Magazzino.web.Controllers
             {
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    productService.Update(product);
+                    productService.Save(product);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (!ProductExists((int)product.Id))
                     {
                         return NotFound();
                     }
@@ -129,7 +127,7 @@ namespace Magazzino.web.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
+            var product = productService.Delete();
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -144,16 +142,16 @@ namespace Magazzino.web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Products.FindAsync(id);
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
+            var product = productService.find(id);
+            productService.delete(id);
+           productService.Save(product
             return RedirectToAction(nameof(Index));
         }
 
 
         private bool ProductExists(int id)
         {
-            return _context.Products.Any(e => e.Id == id);
+            return productService.GetById(e => e.Id == id);
         }
 
 
