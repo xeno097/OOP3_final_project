@@ -1,0 +1,111 @@
+﻿@model  dynamic
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+
+<h2>Usuario</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre de Usuario
+        </dt>
+        <dd>
+            @Model.User.UserNameM
+        </dd>
+        @if (Model.User.TypeM == "0")
+        {
+            <dt>
+                Tipo de Cuenta:
+            </dt>
+            <dd>
+                Cliente
+            </dd>
+            <dt>
+                Nombre:
+            </dt>
+            <dd>
+                @Model.Customer.NameM
+            </dd>
+            <dt>
+                Apellido:
+            </dt>
+            <dd>
+                @Model.Customer.LastName
+            </dd>
+            <dt>
+                Correo:
+            </dt>
+            <dd>
+                @Model.Customer.MailM
+            </dd>
+            <dt>
+                Direccion:
+            </dt>
+            <dd>
+                @Model.Customer.LocationM
+            </dd>
+            <dt>
+                Metodo de Pago:
+            </dt>
+            <dd>
+                @Model.Customer.MetodoPago
+            </dd>
+        }
+
+        @if (Model.TypeM == "1")
+        {
+            <dt>
+                Tipo de cuenta:
+            </dt>
+            <dd>
+                Vendedor
+            </dd>
+            <dt>
+                Nombre de Compañia:
+            </dt>
+            <dd>
+                @Model.Seller.ComapnyM
+            </dd>
+            <dt>
+                Telefono:
+            </dt>
+            <dd>
+                @Model.Seller.TelM
+            </dd>
+            <dt>
+                Direccion:
+            </dt>
+            <dd>
+                @Model.Seller.LocationM
+            </dd>
+            <dt>
+                Calificación:
+            </dt>
+            <dd>
+                @Model.Seller.CalM
+            </dd>
+            <dt>
+                Información de la cuenta:
+            </dt>
+            <dd>
+                @Model.Seller.PostM
+            </dd>
+            <dt>
+                Política de venta:
+            </dt>
+            <dd>
+                @Model.Seller.PolicyM
+            </dd>
+        }
+
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.User.IdUser">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

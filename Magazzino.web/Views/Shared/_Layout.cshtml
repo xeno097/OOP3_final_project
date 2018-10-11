@@ -26,6 +26,7 @@
                 <div class="col-4 pt-1">
                     <a class="text-muted" href="#"></a>
                 </div>
+                
                 <div class="col-4 text-center">
                      @Html.ActionLink("Magazzino", "Index", "Home", null, new { @class = "blog-header-logo text-dark", style="font-size:40px;" })
                 </div>
@@ -40,8 +41,17 @@
                     </form>
                     <br />
                     <br />
-                    @Html.ActionLink("Iniciar sesion", "Index", "Account", null, new { @class = "btn btn-sm btn-outline-secondary" })
-               
+                    @if (Global.LogIn == true)
+                    {
+                        <p>Hola @Global.User.UserNameM</p>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Iniciar sesion", "Index", "Account", null, new { @class = "btn btn-sm btn-outline-secondary" })
+                    }
+
+
+
                 </div>
             </div>
         </header>

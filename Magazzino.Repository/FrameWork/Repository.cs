@@ -57,7 +57,7 @@ namespace Magazzino.Repository.FrameWork
 
             try
             {
-                result.Data = dbSet.ToList();
+                result.Data = (IEnumerable<T>)dbSet.ToList();
                 result.Successfull = true;
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace Magazzino.Repository.FrameWork
             try
             {
                 
-                result.Data = dbSet.Where(specification).ToList();
+                result.Data = (IEnumerable<T>)dbSet.Where(specification).ToList();
 
                 result.Successfull = true;
                 

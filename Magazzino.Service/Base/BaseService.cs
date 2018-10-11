@@ -53,7 +53,7 @@ namespace  Magazzino.Service.Base
             serviceResult.Messages.Add(Error.GetErrorMessage(Error.CorrectTransaction));
             serviceResult.ResultObject = 
                 MapperHelper.Instance.Map<List<Ent>, List<Vm>>
-            (this.Repository.GetAll().Data[0]);
+            (this.Repository.GetAll().Data);
 
             return serviceResult;
         }

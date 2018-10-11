@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using Magazzino.web.Models;
+using System.Dynamic;
 
 namespace Magazzino.web.Controllers
 {
@@ -40,7 +41,7 @@ namespace Magazzino.web.Controllers
             {
                 Global.LogIn = true;
                 Global.User = usuario;
-                return View();
+                return RedirectToAction("Index","Home");
             }
             return View();
         }
@@ -164,6 +165,21 @@ namespace Magazzino.web.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult Usuario()
+        {
+            dynamic usuario = new ExpandoObject();
+            usuario.User = Global.User;
+            if (Global.User.TypeM ==  "0")
+            {
+                usuario.Customer = customerService.GetById((int)Global.User.Id);
+            }
+            else if(Global.User.TypeM == "1")   
+            {
+                usuario.Seller = sellerService.GetById((int)Global.User.Id);
+            }
+            return View(usuario);
         }
     }
 }
