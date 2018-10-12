@@ -71,10 +71,6 @@ namespace Magazzino.Repository.FrameWork
 
         public DataResult GenerateId(Expression<Func<T, int>> specification)
         {
-            if (dbSet.Count() == 0)
-            {
-                return 1;
-            }
             DataResult result = new DataResult();
             result.Data = dbSet.OrderByDescending(specification).FirstOrDefault();
             

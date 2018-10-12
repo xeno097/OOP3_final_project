@@ -138,6 +138,10 @@ namespace  Magazzino.Service.Base
         public int GenerateId()
         {
             var id = this.Repository.GenerateId(i => i.Id).Data;
+            if(id.Id == null)
+            {
+                return 1;
+            }
             return ((int)id.Id)+1;
         }
     }
