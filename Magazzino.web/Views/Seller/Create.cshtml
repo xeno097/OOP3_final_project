@@ -1,4 +1,4 @@
-﻿@model Magazzino.Data.Entities.Seller
+﻿@model Magazzino.Models.SellerViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,39 +13,39 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdSeller" class="control-label"></label>
-                <input asp-for="IdSeller" class="form-control" />
-                <span asp-validation-for="IdSeller" class="text-danger"></span>
+                <label asp-for="IdSellerM" class="control-label"></label>
+                <input asp-for="IdSellerM" class="form-control" />
+                <span asp-validation-for="IdSellerM" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Company" class="control-label"></label>
-                <input asp-for="Company" class="form-control" />
-                <span asp-validation-for="Company" class="text-danger"></span>
+                <label asp-for="CompanyM" class="control-label"></label>
+                <input asp-for="CompanyM" class="form-control" />
+                <span asp-validation-for="CompanyM" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tel" class="control-label"></label>
-                <input asp-for="Tel" class="form-control" />
-                <span asp-validation-for="Tel" class="text-danger"></span>
+                <label asp-for="TelM" class="control-label"></label>
+                <input asp-for="TelM" class="form-control" />
+                <span asp-validation-for="TelM" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
+                <label asp-for="LocationM" class="control-label"></label>
+                <input asp-for="LocationM" class="form-control" />
+                <span asp-validation-for="LocationM" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cal" class="control-label"></label>
-                <input asp-for="Cal" class="form-control" />
-                <span asp-validation-for="Cal" class="text-danger"></span>
+                <label asp-for="CalM" class="control-label"></label>
+                <input asp-for="CalM" class="form-control" />
+                <span asp-validation-for="CalM" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Post" class="control-label"></label>
-                <input asp-for="Post" class="form-control" />
-                <span asp-validation-for="Post" class="text-danger"></span>
+                <label asp-for="PostM" class="control-label"></label>
+                <input asp-for="PostM" class="form-control" />
+                <span asp-validation-for="PostM" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Policy" class="control-label"></label>
-                <input asp-for="Policy" class="form-control" />
-                <span asp-validation-for="Policy" class="text-danger"></span>
+                <label asp-for="PolicyM" class="control-label"></label>
+                <input asp-for="PolicyM" class="form-control" />
+                <span asp-validation-for="PolicyM" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RowId" class="control-label"></label>

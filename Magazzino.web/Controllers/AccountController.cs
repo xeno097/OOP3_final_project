@@ -167,8 +167,8 @@ namespace Magazzino.web.Controllers
                 };
                 sellerService.Insert(seller);
             }
-
-            return View();
+            return RedirectToAction(nameof(Index));
+            //return View();
         }
 
         public ActionResult Usuario()
