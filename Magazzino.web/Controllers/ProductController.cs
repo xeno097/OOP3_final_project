@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +10,9 @@ using Magazzino.Data.Entities;
 using Magazzino.Repository.Migrations;
 using Magazzino.Service.Interfaces;
 using Magazzino.Models;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Magazzino.web.Controllers
 {
@@ -16,11 +20,17 @@ namespace Magazzino.web.Controllers
     {
         private readonly ApplicationContext context;
         private readonly IProductService productService;
+        private IHostingEnvironment _environment;
 
+<<<<<<< HEAD
         public ApplicationContext Context => context;
 
         public ProductController(IProductService _productService, IUserService userService) : base(userService)
+=======
+        public ProductController(IProductService _productService, IUserService userService, IHostingEnvironment environment) : base(userService)
+>>>>>>> 4b5934a09387f068e1f498c04843e74b47b5a9b1
         {
+            _environment = environment;
             productService = _productService;
         }
 
@@ -60,10 +70,25 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public IActionResult Create([Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] ProductViewModel product)
+=======
+        public async Task<IActionResult> Create([Bind("IdProductM,ProductNameM,DetailsM,MoneM,IdSellersM,CalM,ImgM,CategoryM,Id,RowIdM")] ProductViewModel product, [Bind("file")]IFormFile file)
+>>>>>>> 4b5934a09387f068e1f498c04843e74b47b5a9b1
         {
             if (ModelState.IsValid)
             {
+                var uploads = Path.Combine(_environment.WebRootPath, "uploads");
+                if (file.Length > 0)
+                {
+                    product.ImgM = Path.Combine(uploads, file.FileName);
+                    using (var fileStream = new FileStream(product.ImgM, FileMode.Create))
+                    {
+                            await file.CopyToAsync(fileStream);
+                    }
+                }
+
+                
                 productService.Insert(product);
                 return RedirectToAction(nameof(Index));
             }

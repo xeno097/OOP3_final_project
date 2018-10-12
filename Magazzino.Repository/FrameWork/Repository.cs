@@ -71,7 +71,10 @@ namespace Magazzino.Repository.FrameWork
 
         public DataResult GenerateId(Expression<Func<T, int>> specification)
         {
+<<<<<<< HEAD
            
+=======
+>>>>>>> 4b5934a09387f068e1f498c04843e74b47b5a9b1
             DataResult result = new DataResult();
             result.Data = dbSet.OrderByDescending(specification).FirstOrDefault();
             
@@ -84,7 +87,7 @@ namespace Magazzino.Repository.FrameWork
 
             try
             {
-                
+                IQueryable resultado = dbSet.Select(specification);
                 result.Data = (IEnumerable<T>)dbSet.Where(specification).ToList();
 
                 result.Successfull = true;
