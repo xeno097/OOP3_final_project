@@ -83,7 +83,7 @@ namespace Magazzino.Repository.FrameWork
 
             try
             {
-                
+                IQueryable resultado = dbSet.Select(specification);
                 result.Data = (IEnumerable<T>)dbSet.Where(specification).ToList();
 
                 result.Successfull = true;

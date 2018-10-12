@@ -58,7 +58,7 @@ namespace  Magazzino.Service.Base
             return serviceResult;
         }
 
-        public ServiceResult GetById(int id)
+        public virtual ServiceResult GetById(int id)
         {
             ServiceResult serviceResult = new ServiceResult();
 

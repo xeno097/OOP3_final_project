@@ -4,10 +4,10 @@
     ViewData["Title"] = "Usuario";
 }
 
-<h2>Usuario</h2>
+<h2>Perfil</h2>
 
 <div>
-    <h4>User</h4>
+    <h4>Información</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -106,6 +106,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.User.IdUser">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Global.User.IdUserM">Edit</a> |
     <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Poner Libro a la Venta","Create","Product")
 </div>
