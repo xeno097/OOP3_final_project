@@ -130,7 +130,8 @@ namespace Magazzino.web.Controllers
         // GET: Product/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ProductViewModel product = productService.GetById(id).ResultObject;
+            return View(product);
         }
 
 

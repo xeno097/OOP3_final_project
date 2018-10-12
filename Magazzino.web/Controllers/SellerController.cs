@@ -27,23 +27,21 @@ namespace Magazzino.web.Controllers
         public JsonResult SellerList()
         {
             var result = sellerServices.GetAll();
-
             return Json(result);
         }
 
         //GET: Seller/Index
         public IActionResult Index()
         {
-            var seller = sellerServices.GetAll();
-
-            return View(seller.ResultObject);
+            var products = sellerServices.GetAll();
+            return View(products.ResultObject);
         }
-        public IActionResult Details(int id )
-        {
 
-            SellerViewModel result = sellerServices.GetById(id).ResultObject;
-            
-            return View(result);
+
+        public IActionResult Details(int id)
+        {
+            SellerViewModel seller = sellerServices.GetById(id).ResultObject;
+            return View(seller);
         }
 
         [HttpGet("find")]
@@ -73,32 +71,62 @@ namespace Magazzino.web.Controllers
             return Json(result.Success);
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int id)
+        {
+            SellerViewModel seller = sellerServices.GetById(id).ResultObject;
+            return View(seller);
+        }
+
+        // POST: Product/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            SellerViewModel seller = sellerServices.GetById((int)id).ResultObject();
+            sellerServices.Delete(seller);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        // GET: Product/Edit/5
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            SellerViewModel seller = sellerServices.GetById((int)id).ResultObject;
+            //product = productService.Update(product).ResultObject;
+
+
+            if (seller == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(seller);
         }
 
-        // POST: Product/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Product/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult Edit([Bind("IdSelllerM,CompanyM,TelM,LocationM,CalM,PostM,PolicyM")] SellerViewModel seller)
         {
-            var product = await _context.Products.FindAsync(id);
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            if (seller == null)
+            {
+                throw new ArgumentNullException(nameof(seller));
+            }
+
+            if (ModelState.IsValid)
+            {
+                sellerServices.Update(seller);
+
+            }
+            return RedirectToAction("Index");
         }
 
 
