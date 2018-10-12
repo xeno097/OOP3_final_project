@@ -45,6 +45,7 @@ namespace Magazzino.web.Controllers
             
             return View(result);
         }
+
         [HttpGet("find")]
         public JsonResult SellerFind(string company)
         {
