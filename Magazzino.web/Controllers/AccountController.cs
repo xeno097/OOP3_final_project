@@ -182,6 +182,14 @@ namespace Magazzino.web.Controllers
                 usuario.Seller = sellerService.GetById((int)Global.User.Id).ResultObject;
             }
             return View(usuario);
+
+
+        }
+        public ActionResult Logout()
+        {
+            Global.LogIn = false;
+            Global.User = null;
+            return View();
         }
     }
 }
