@@ -137,15 +137,12 @@ namespace  Magazzino.Service.Base
 
         public int GenerateId()
         {
-<<<<<<< HEAD
-            dynamic id = Repository.GenerateId(i => i.Id).Data;
-=======
+
             var id = this.Repository.GenerateId(i => i.Id).Data;
             if(id.Id == null)
             {
                 return 1;
             }
->>>>>>> 4b5934a09387f068e1f498c04843e74b47b5a9b1
             return ((int)id.Id)+1;
         }
     }

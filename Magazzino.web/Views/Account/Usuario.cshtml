@@ -106,11 +106,9 @@
     </dl>
 </div>
 <div>
-<<<<<<< HEAD
+
     <a asp-action="Edit" asp-route-id="@Model.User.IdUserM">Edit</a> |
-=======
-    <a asp-action="Edit" asp-route-id="@Global.User.IdUserM">Edit</a> |
->>>>>>> 4b5934a09387f068e1f498c04843e74b47b5a9b1
     <a asp-action="Index">Back to List</a>
-    @Html.ActionLink("Poner Libro a la Venta","Create","Product")
+    @Html.ActionLink("Poner Libro a la Venta", "Create", "Product")
+    @Html.ActionLink("Desconectarse", "Logout", "Account")
 </div>
