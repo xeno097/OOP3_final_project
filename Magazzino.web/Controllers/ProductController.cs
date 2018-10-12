@@ -14,8 +14,10 @@ namespace Magazzino.web.Controllers
 {
     public class ProductController : BaseController
     {
-        //private readonly ApplicationContext _context;
+        private readonly ApplicationContext context;
         private readonly IProductService productService;
+
+        public ApplicationContext Context => context;
 
         public ProductController(IProductService _productService, IUserService userService) : base(userService)
         {
@@ -58,7 +60,7 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] ProductViewModel product)
+        public IActionResult Create([Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] ProductViewModel product)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +71,7 @@ namespace Magazzino.web.Controllers
         }
 
         // GET: Product/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -89,7 +91,7 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProduct,ProductName,Details,Money,IdSellers,Cal,Img,Category,Id,RowId,CreatedByUserId,CreatedDate,ModifyByUserId,ModifiedDate")] ProductViewModel product)
+        public async Task<IActionResult> Edit(int id, [Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId")] ProductViewModel product)
         {
             if (id != product.Id)
             {
@@ -98,14 +100,14 @@ namespace Magazzino.web.Controllers
 
             if (ModelState.IsValid)
             {
-                /*try
+                try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    Context.Update(product);
+                    await Context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (!ProductExists((int)product.Id))
                     {
                         return NotFound();
                     }
@@ -113,47 +115,36 @@ namespace Magazzino.web.Controllers
                     {
                         throw;
                     }
-                }*/
-                return RedirectToAction(nameof(Index));
+
+                    
+                }
             }
             return View(product);
         }
 
         // GET: Product/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            /*if (id == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
-            {
-                return NotFound();
-            }*/
-
-            //return View(product);
             return View();
         }
+
 
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            //var product = await _context.Products.FindAsync(id);
-            //_context.Products.Remove(product);
-            //await _context.SaveChangesAsync();
+            var product = await Context.Products.FindAsync(id);
+            Context.Products.Remove(product);
+            await Context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
 
         private bool ProductExists(int id)
         {
-            //return _context.Products.Any(e => e.Id == id);
-            return false;
+            return Context.Products.Any(e => e.Id == id);
+           
         }
 
 

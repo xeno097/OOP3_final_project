@@ -32,13 +32,19 @@ namespace Magazzino.web.Controllers
         }
 
         //GET: Seller/Index
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var seller = sellerServices.GetAll();
 
             return View(seller.ResultObject);
         }
+        public IActionResult Details(int id )
+        {
 
+            SellerViewModel result = sellerServices.GetById(id).ResultObject;
+            
+            return View(result);
+        }
         [HttpGet("find")]
         public JsonResult SellerFind(string company)
         {

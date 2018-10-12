@@ -1,0 +1,66 @@
+﻿@model Magazzino.Models.SellerViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Seller</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSellerM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdSellerM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TelM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TelM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocationM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CalM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CalM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyM)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyM)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RowId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RowId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

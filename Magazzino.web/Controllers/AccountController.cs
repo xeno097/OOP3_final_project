@@ -172,6 +172,7 @@ namespace Magazzino.web.Controllers
         {
             dynamic usuario = new ExpandoObject();
             usuario.User = Global.User;
+            
             if (Global.User.TypeM ==  "0")
             {
                 usuario.Customer = customerService.GetById((int)Global.User.Id).ResultObject;
