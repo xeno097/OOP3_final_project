@@ -43,7 +43,7 @@
                     <br />
                     @if (Global.LogIn == true)
                     {
-                        <p>Hola @Global.User.UserNameM</p>
+                        <p>Hola @Html.ActionLink(Global.User.UserNameM,"Usuario","Account")</p>
                     }
                     else
                     {

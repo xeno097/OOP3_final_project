@@ -16,7 +16,7 @@
         <dd>
             @Model.User.UserNameM
         </dd>
-        @if (Model.User.TypeM == "0")
+        @if (Global.User.TypeM == "0")
         {
             <dt>
                 Tipo de Cuenta:
@@ -56,7 +56,7 @@
             </dd>
         }
 
-        @if (Model.TypeM == "1")
+        @if (Global.User.TypeM == "1")
         {
             <dt>
                 Tipo de cuenta:
@@ -68,7 +68,7 @@
                 Nombre de Compañia:
             </dt>
             <dd>
-                @Model.Seller.ComapnyM
+                @Model.Seller.CompanyM
             </dd>
             <dt>
                 Telefono:

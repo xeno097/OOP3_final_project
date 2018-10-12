@@ -7,7 +7,6 @@ using Magazzino.Models;
 using Magazzino.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Web;
 using Magazzino.web.Models;
 using System.Dynamic;
 
@@ -159,7 +158,9 @@ namespace Magazzino.web.Controllers
                     LocationM = form["LocationM"],
                     PolicyM = form["PolicyM"],
                     PostM = form["PostM"],
-                    TelM = form["TelM"]
+                    TelM = form["TelM"],
+                    CompanyM = form["CompanyM"],
+
                 };
                 sellerService.Insert(seller);
             }
@@ -173,11 +174,11 @@ namespace Magazzino.web.Controllers
             usuario.User = Global.User;
             if (Global.User.TypeM ==  "0")
             {
-                usuario.Customer = customerService.GetById((int)Global.User.Id);
+                usuario.Customer = customerService.GetById((int)Global.User.Id).ResultObject;
             }
             else if(Global.User.TypeM == "1")   
             {
-                usuario.Seller = sellerService.GetById((int)Global.User.Id);
+                usuario.Seller = sellerService.GetById((int)Global.User.Id).ResultObject;
             }
             return View(usuario);
         }
