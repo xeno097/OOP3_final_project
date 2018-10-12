@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Magazzino.Data.Infraestructure;
 using Magazzino.Repository.Migrations;
+using System.Collections;
 
 namespace Magazzino.Repository.FrameWork
 {
@@ -148,6 +149,8 @@ namespace Magazzino.Repository.FrameWork
 
             try
             {
+                
+                context.Entry(entity).State = EntityState.Modified;
                 context.SaveChanges();
                 result.Data = entity;
                 result.Successfull = true;

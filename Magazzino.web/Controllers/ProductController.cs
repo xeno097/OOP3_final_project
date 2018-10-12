@@ -18,10 +18,10 @@ namespace Magazzino.web.Controllers
 {
     public class ProductController : BaseController
     {
-        private readonly ApplicationContext context;
+        private ApplicationContext Context = new ApplicationContext();
         private readonly IProductService productService;
         private IHostingEnvironment _environment;
-        public ApplicationContext Context => context;
+        
 
 
         public ProductController(IProductService _productService, IUserService userService, IHostingEnvironment environment) : base(userService)
@@ -47,7 +47,7 @@ namespace Magazzino.web.Controllers
                 return NotFound();
             }
 
-            var product = productService.GetById((int)id);
+            ProductViewModel product = productService.GetById((int)id).ResultObject;
             if (product == null)
             {
                 return NotFound();
@@ -65,9 +65,7 @@ namespace Magazzino.web.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-
-        public async Task<IActionResult> Create([Bind("IdProductM,ProductNameM,DetailsM,MoneM,IdSellersM,CalM,ImgM,CategoryM,Id,RowIdM")] ProductViewModel product, [Bind("file")]IFormFile file)
+        public async Task<IActionResult> Create([Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId")] ProductViewModel product, [Bind("file")]IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -96,11 +94,15 @@ namespace Magazzino.web.Controllers
                 return NotFound();
             }
 
-            var product = productService.GetById((int)id);
+            ProductViewModel product = productService.GetById((int)id).ResultObject;
+            //product = productService.Update(product).ResultObject;
+            
+            
             if (product == null)
             {
                 return NotFound();
             }
+
             return View(product);
         }
 
@@ -109,35 +111,20 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId")] ProductViewModel product)
+        public IActionResult Edit([Bind("IdProductM,ProductNameM,DetailsM,MoneyM,IdSellersM,CalM,ImgM,CategoryM,Id,RowId")] ProductViewModel product)
         {
-            if (id != product.Id)
+           
+            if (product == null)
             {
-                return NotFound();
+                throw new ArgumentNullException(nameof(product));
             }
 
             if (ModelState.IsValid)
-            {
-                try
-                {
-                    Context.Update(product);
-                    await Context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists((int)product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-
-                    
-                }
+            {   
+                productService.Update(product);
+                
             }
-            return View(product);
+            return RedirectToAction("Index");
         }
 
         // GET: Product/Delete/5

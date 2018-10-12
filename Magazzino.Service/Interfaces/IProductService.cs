@@ -9,5 +9,6 @@ namespace Magazzino.Service.Interfaces
     {
 
         ServiceResult Find(string product);
+        
     }
 }

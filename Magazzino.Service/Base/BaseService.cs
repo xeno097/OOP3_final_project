@@ -111,9 +111,9 @@ namespace  Magazzino.Service.Base
         {
             ServiceResult serviceResult = new ServiceResult();
 
-            var ToUpdate = this.Repository.GetById((int)viewModel.Id).Data;
+            //var ToUpdate = this.Repository.GetById((int)viewModel.Id).Data;
 
-            if(ToUpdate == null)
+            if(false)
             {
                 serviceResult.Success = false;
                 serviceResult.ResultTitle = "ERROR: Record No Found";

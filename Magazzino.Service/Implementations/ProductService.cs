@@ -31,9 +31,10 @@ namespace Magazzino.Service.Implementations
                 Map<User, UserViewModel>(
                     this.Repository.GetAll(i => i.ProductName == product
                                            ).Data);
-
+            
             return serviceResult;
         }
+
        
     }
 }
