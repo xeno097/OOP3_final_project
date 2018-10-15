@@ -190,8 +190,8 @@ namespace Magazzino.web.Controllers
         public ActionResult Logout()
         {
             Global.LogIn = false;
-            Global.User = null; 
-            return View()
+            Global.User = null;
+            return View();
         }
     }
 }
