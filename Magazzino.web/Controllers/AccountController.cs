@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Magazzino.web.Models;
 using System.Dynamic;
-using System.Web;
 
 namespace Magazzino.web.Controllers
 {
@@ -41,9 +40,7 @@ namespace Magazzino.web.Controllers
             {
                 Global.LogIn = true;
                 Global.User = usuario;
-                Response.Cookies.Add("hola");
                 return RedirectToAction("Index","Home");
-                
             }
             return View();
         }
@@ -185,8 +182,9 @@ namespace Magazzino.web.Controllers
                 usuario.Seller = sellerService.GetById((int)Global.User.Id).ResultObject;
             }
             return View(usuario);
-        }
 
+
+        }
         public ActionResult Logout()
         {
             Global.LogIn = false;

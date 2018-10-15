@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Magazzino.Data.Infraestructure;
 using Magazzino.Repository.Migrations;
+using System.Collections;
 
 namespace Magazzino.Repository.FrameWork
 {
@@ -71,10 +72,7 @@ namespace Magazzino.Repository.FrameWork
 
         public DataResult GenerateId(Expression<Func<T, int>> specification)
         {
-<<<<<<< HEAD
-=======
 
->>>>>>> 0f7866490914fb489708fa11da49f13a2b073a2f
             DataResult result = new DataResult();
             result.Data = dbSet.OrderByDescending(specification).FirstOrDefault();
             
@@ -151,6 +149,8 @@ namespace Magazzino.Repository.FrameWork
 
             try
             {
+                
+                context.Entry(entity).State = EntityState.Modified;
                 context.SaveChanges();
                 result.Data = entity;
                 result.Successfull = true;

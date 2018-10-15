@@ -111,9 +111,9 @@ namespace  Magazzino.Service.Base
         {
             ServiceResult serviceResult = new ServiceResult();
 
-            var ToUpdate = this.Repository.GetById((int)viewModel.Id).Data;
+            //var ToUpdate = this.Repository.GetById((int)viewModel.Id).Data;
 
-            if(ToUpdate == null)
+            if(false)
             {
                 serviceResult.Success = false;
                 serviceResult.ResultTitle = "ERROR: Record No Found";
@@ -138,20 +138,13 @@ namespace  Magazzino.Service.Base
         public int GenerateId()
         {
 
-<<<<<<< HEAD
-            var id = this.Repository.GenerateId(i => i.Id).Data;
-=======
             dynamic id = Repository.GenerateId(i => i.Id).Data;
     
->>>>>>> 0f7866490914fb489708fa11da49f13a2b073a2f
             if(id.Id == null)
             {
                 return 1;
             }
-<<<<<<< HEAD
-=======
 
->>>>>>> 0f7866490914fb489708fa11da49f13a2b073a2f
             return ((int)id.Id)+1;
         }
     }
