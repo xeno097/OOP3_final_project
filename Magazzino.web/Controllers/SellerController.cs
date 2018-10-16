@@ -32,6 +32,32 @@ namespace Magazzino.web.Controllers
             return Json(result);
         }
 
+<<<<<<< HEAD
+=======
+        //GET: Seller/Index
+        public IActionResult Index()
+        {
+            var products = sellerServices.GetAll();
+            return View(products.ResultObject);
+        }
+
+        // Get: Seller/Details
+        public IActionResult Details(int id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+            SellerViewModel seller = sellerServices.GetById((int)id).ResultObject;
+            if (seller == null)
+            {
+                return NotFound();
+            }
+            return View(seller);
+        }
+
+
+>>>>>>> c62a165d39146133bbca412091494ce65c2800ef
         [HttpGet("find")]
         public JsonResult SellerFind(string company)
         {
@@ -43,6 +69,7 @@ namespace Magazzino.web.Controllers
             return Json(result);
         }
 
+
         [HttpPost("add")]
         public JsonResult SellerInsert(SellerViewModel sellerViewModel)
         {
@@ -50,6 +77,7 @@ namespace Magazzino.web.Controllers
 
             return Json(result.Success);
         }
+
 
         [HttpDelete("delete")]
         public JsonResult SellerDelete(SellerViewModel sellerViewModel)
@@ -60,6 +88,7 @@ namespace Magazzino.web.Controllers
         }
 
 
+<<<<<<< HEAD
         //GET: Seller/Index
         public IActionResult Index()
         {
@@ -85,13 +114,17 @@ namespace Magazzino.web.Controllers
 
         
         // GET: Seller/Delete/5
+=======
+        // GET: seller/Delete/5
+>>>>>>> c62a165d39146133bbca412091494ce65c2800ef
         public IActionResult Delete(int id)
         {
             SellerViewModel seller = sellerServices.GetById(id).ResultObject;
             return View(seller);
         }
 
-        // POST: Seller/Delete/5
+
+        // POST: seller/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
@@ -101,7 +134,12 @@ namespace Magazzino.web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+<<<<<<< HEAD
         // GET: Seller/Edit/4
+=======
+
+        [HttpGet]
+>>>>>>> c62a165d39146133bbca412091494ce65c2800ef
         public IActionResult Edit(int? id)
         {
            
@@ -109,6 +147,7 @@ namespace Magazzino.web.Controllers
             {
                 return NotFound();
             }
+
             SellerViewModel seller = sellerServices.GetById((int)id).ResultObject;
 
             if (seller == null)

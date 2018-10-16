@@ -91,6 +91,7 @@ namespace Magazzino.web.Controllers
         // GET: Product/Edit/5
         public IActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -98,14 +99,13 @@ namespace Magazzino.web.Controllers
 
             ProductViewModel product = productService.GetById((int)id).ResultObject;
            
-            
- 
             if (product == null)
             {
                 return NotFound();
             }
 
             return View(product);
+
         }
 
         // POST: Product/Edit/5
