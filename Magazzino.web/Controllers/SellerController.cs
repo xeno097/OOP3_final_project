@@ -40,9 +40,9 @@ namespace Magazzino.web.Controllers
         }
 
         // Get: Seller/Details
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
@@ -66,6 +66,7 @@ namespace Magazzino.web.Controllers
             return Json(result);
         }
 
+
         [HttpPost("add")]
         public JsonResult SellerInsert(SellerViewModel sellerViewModel)
         {
@@ -73,6 +74,7 @@ namespace Magazzino.web.Controllers
 
             return Json(result.Success);
         }
+
 
         [HttpDelete("delete")]
         public JsonResult SellerDelete(SellerViewModel sellerViewModel)
@@ -82,14 +84,16 @@ namespace Magazzino.web.Controllers
             return Json(result.Success);
         }
 
-        // GET: Seller/Delete/5
+
+        // GET: seller/Delete/5
         public IActionResult Delete(int id)
         {
             SellerViewModel seller = sellerServices.GetById(id).ResultObject;
             return View(seller);
         }
 
-        // POST: Seller/Delete/5
+
+        // POST: seller/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
@@ -100,7 +104,7 @@ namespace Magazzino.web.Controllers
         }
 
 
-        // GET: Product/Edit/4
+        [HttpGet]
         public IActionResult Edit(int? id)
         {
            
@@ -108,6 +112,7 @@ namespace Magazzino.web.Controllers
             {
                 return NotFound();
             }
+
             SellerViewModel seller = sellerServices.GetById((int)id).ResultObject;
 
             if (seller == null)
