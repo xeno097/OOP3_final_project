@@ -88,7 +88,7 @@ namespace Magazzino.web.Controllers
         }
 
 
-        // GET: Product/Edit/5
+        
         public IActionResult Edit(int? id)
         {
             if (id == null)

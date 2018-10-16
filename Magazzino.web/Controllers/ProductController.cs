@@ -13,6 +13,7 @@ using Magazzino.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using Magazzino.web.Models;
 
 namespace Magazzino.web.Controllers
 {
@@ -70,7 +71,7 @@ namespace Magazzino.web.Controllers
             if (ModelState.IsValid)
             {
                 var uploads = Path.Combine(_environment.WebRootPath, "uploads");
-                if (file.Length > 0)
+                if (file.FileName.Length > 0)
                 {
                     product.ImgM = Path.Combine(uploads, file.FileName);
                     using (var fileStream = new FileStream(product.ImgM, FileMode.Create))
@@ -78,7 +79,7 @@ namespace Magazzino.web.Controllers
                             await file.CopyToAsync(fileStream);
                     }
                 }
-
+                product.IdSellersM = Global.User.IdUserM;
                 
                 productService.Insert(product);
                 return RedirectToAction(nameof(Index));
