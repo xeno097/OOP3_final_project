@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Magazzino.Repository.Migrations;
 using Magazzino.Models.Infraestruture;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Magazzino.web.Controllers
 {
@@ -16,6 +17,7 @@ namespace Magazzino.web.Controllers
     {
         private readonly ISellerService sellerServices;
         private readonly ApplicationContext _context;
+     
 
         public SellerController(ISellerService _SellerServices, ApplicationContext context)
         {
@@ -37,12 +39,21 @@ namespace Magazzino.web.Controllers
             return View(products.ResultObject);
         }
 
-
-        public IActionResult Details(int id)
+        // Get: Seller/Details
+        public IActionResult Details(int? id)
         {
-            SellerViewModel seller = sellerServices.GetById(id).ResultObject;
+            if (id == null)
+            {
+                return NotFound();
+            }
+            SellerViewModel seller = sellerServices.GetById((int)id).ResultObject;
+            if (seller == null)
+            {
+                return NotFound();
+            }
             return View(seller);
         }
+
 
         [HttpGet("find")]
         public JsonResult SellerFind(string company)
@@ -71,13 +82,14 @@ namespace Magazzino.web.Controllers
             return Json(result.Success);
         }
 
+        // GET: Seller/Delete/5
         public IActionResult Delete(int id)
         {
             SellerViewModel seller = sellerServices.GetById(id).ResultObject;
             return View(seller);
         }
 
-        // POST: Product/Delete/5
+        // POST: Seller/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
@@ -88,17 +100,19 @@ namespace Magazzino.web.Controllers
         }
 
 
+<<<<<<< HEAD
         
+=======
+        // GET: Product/Edit/4
+>>>>>>> a57eb4189a4218bc83bf1436f51e452e462c7eb0
         public IActionResult Edit(int? id)
         {
+           
             if (id == null)
             {
                 return NotFound();
             }
-
             SellerViewModel seller = sellerServices.GetById((int)id).ResultObject;
-            //product = productService.Update(product).ResultObject;
-
 
             if (seller == null)
             {
@@ -113,9 +127,8 @@ namespace Magazzino.web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit([Bind("IdSelllerM,CompanyM,TelM,LocationM,CalM,PostM,PolicyM")] SellerViewModel seller)
+        public IActionResult Edit([Bind("IdSellerM,CompanyM,TelM,LocationM,CalM,PolicyM,Id,RowId")] SellerViewModel seller)
         {
-
             if (seller == null)
             {
                 throw new ArgumentNullException(nameof(seller));

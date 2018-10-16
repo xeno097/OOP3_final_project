@@ -51,28 +51,9 @@ namespace Magazzino.web.Controllers
             return View();
         }
 
-        // GET: Account/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+      
 
-        // POST: Account/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+     
 
         // GET: Account/Edit/5
         public ActionResult Edit(int id)
@@ -160,6 +141,7 @@ namespace Magazzino.web.Controllers
                     PostM = form["PostM"],
                     TelM = form["TelM"],
                     CompanyM = form["CompanyM"],
+                    CalM = form["CalM"]
 
                 };
                 sellerService.Insert(seller);
