@@ -48,6 +48,7 @@ namespace Magazzino.web.Controllers
             }
 
             ProductViewModel product = productService.GetById((int)id).ResultObject;
+
             if (product == null)
             {
                 return NotFound();
@@ -95,9 +96,9 @@ namespace Magazzino.web.Controllers
             }
 
             ProductViewModel product = productService.GetById((int)id).ResultObject;
-            //product = productService.Update(product).ResultObject;
+           
             
-            
+ 
             if (product == null)
             {
                 return NotFound();
