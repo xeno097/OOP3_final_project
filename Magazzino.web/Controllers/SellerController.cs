@@ -32,6 +32,34 @@ namespace Magazzino.web.Controllers
             return Json(result);
         }
 
+        [HttpGet("find")]
+        public JsonResult SellerFind(string company)
+        {
+            var result = (List<SellerViewModel>)sellerServices.GetAll().ResultObject;
+            var filter = result.Where(x => x.CompanyM == company);
+
+            var result2 = sellerServices.Find(company);
+
+            return Json(result);
+        }
+
+        [HttpPost("add")]
+        public JsonResult SellerInsert(SellerViewModel sellerViewModel)
+        {
+            var result = sellerServices.Insert(sellerViewModel);
+
+            return Json(result.Success);
+        }
+
+        [HttpDelete("delete")]
+        public JsonResult SellerDelete(SellerViewModel sellerViewModel)
+        {
+            ServiceResult result = sellerServices.Delete(sellerViewModel);
+
+            return Json(result.Success);
+        }
+
+
         //GET: Seller/Index
         public IActionResult Index()
         {
@@ -55,33 +83,7 @@ namespace Magazzino.web.Controllers
         }
 
 
-        [HttpGet("find")]
-        public JsonResult SellerFind(string company)
-        {
-            var result = (List<SellerViewModel>)sellerServices.GetAll().ResultObject;
-            var filter = result.Where(x => x.CompanyM == company);
-
-            var result2 = sellerServices.Find(company);
-
-            return Json(result);
-        }
-
-        [HttpPost("add")]
-        public JsonResult SellerInsert(SellerViewModel sellerViewModel)
-        {
-            var result = sellerServices.Insert( sellerViewModel);
-
-            return Json(result.Success);
-        }
-
-        [HttpDelete("delete")]
-        public JsonResult SellerDelete(SellerViewModel sellerViewModel)
-        {
-            ServiceResult result = sellerServices.Delete(sellerViewModel);
-
-            return Json(result.Success);
-        }
-
+        
         // GET: Seller/Delete/5
         public IActionResult Delete(int id)
         {
@@ -99,12 +101,7 @@ namespace Magazzino.web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
-<<<<<<< HEAD
-        
-=======
-        // GET: Product/Edit/4
->>>>>>> a57eb4189a4218bc83bf1436f51e452e462c7eb0
+        // GET: Seller/Edit/4
         public IActionResult Edit(int? id)
         {
            
@@ -122,7 +119,7 @@ namespace Magazzino.web.Controllers
             return View(seller);
         }
 
-        // POST: Product/Edit/5
+        // POST: Seller/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -141,10 +138,5 @@ namespace Magazzino.web.Controllers
             }
             return RedirectToAction("Index");
         }
-
-
-
-
-
     }
 }
